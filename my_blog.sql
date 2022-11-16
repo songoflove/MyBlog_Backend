@@ -26,6 +26,8 @@ view_counts INT,
 PRIMARY KEY(id) USING BTREE
 ) ENGINE = INNODB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
+DESC blog_article;
+
 -- ----------------------------
 -- Table structure for blog_category
 -- ----------------------------
