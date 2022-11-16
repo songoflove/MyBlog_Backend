@@ -6,7 +6,7 @@ import java.sql.Timestamp;
 
 @Data
 public class CategoryVo {
-    private int id;
+    private Integer id;
 
     private String category_name;
 

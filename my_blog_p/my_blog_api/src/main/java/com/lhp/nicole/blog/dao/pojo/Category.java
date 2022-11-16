@@ -7,10 +7,10 @@ import java.sql.Timestamp;
 @Data
 public class Category {
 
-    private int id;
+    private Integer id;
 
     private String category_name;
 
-    private int article_id;
+    private Integer article_id;
 
 }
