@@ -14,4 +14,6 @@ public interface LoginService {
 
     User checkToken(String token);
 
+    Result logout(String token);
+
 }
