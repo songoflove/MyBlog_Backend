@@ -55,11 +55,6 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>commons-codec</groupId>
-            <artifactId>commons-codec</artifactId>
-        </dependency>
-
 
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -88,6 +83,10 @@
             <artifactId>commons-collections</artifactId>
             <version>3.2.2</version>
         </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>com.baomidou</groupId>
@@ -98,17 +97,30 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
-        <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
-            <version>2.10.10</version>
-        </dependency>
-
+<!--        <dependency>-->
+<!--            <groupId>joda-time</groupId>-->
+<!--            <artifactId>joda-time</artifactId>-->
+<!--            <version>2.10.10</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt</artifactId>
             <version>0.9.1</version>
         </dependency>
+
     </dependencies>
+
+    <!--用于配置maven加载src-main-java中的xml文件 ** 代表多层目录加载，一个 * 只能加载一层目录-->
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
+    </build>
+
 </project>

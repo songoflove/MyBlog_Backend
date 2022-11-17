@@ -1,27 +1,30 @@
+-- 由于mybatis plus使用雪花算法计算自增id，会生成很多位数的数字，所以需要使用Bigint而不是int
+
 -- ----------------------------
 -- Table structure for blog_account
 -- ----------------------------
 DROP TABLE IF EXISTS blog_account;
 CREATE TABLE blog_account (
-id INT NOT NULL AUTO_INCREMENT,
+id BIGINT(0) NOT NULL AUTO_INCREMENT,
 username VARCHAR(64) NOT NULL,
 `password` VARCHAR(64) NOT NULL,
 created_date DATETIME DEFAULT NULL,
 PRIMARY KEY(id) USING BTREE
 ) ENGINE = INNODB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
+DESC blog_account;
 -- ----------------------------
 -- Table structure for blog_article
 -- ----------------------------
 DROP TABLE IF EXISTS blog_article;
 CREATE TABLE blog_article (
-id INT NOT NULL AUTO_INCREMENT,
+id BIGINT(0) NOT NULL AUTO_INCREMENT,
 title VARCHAR(64) NOT NULL,
 summary VARCHAR(255) NOT NULL,
 `content` LONGTEXT,
 `created_date` DATETIME NOT NULL ON UPDATE CURRENT_TIMESTAMP,
-user_id INT(0) NOT NULL,
-category_id INT,
+user_id BIGINT(0) NOT NULL,
+category_id BIGINT(0),
 view_counts INT,
 PRIMARY KEY(id) USING BTREE
 ) ENGINE = INNODB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
@@ -31,9 +34,18 @@ DESC blog_article;
 -- ----------------------------
 -- Table structure for blog_category
 -- ----------------------------
+DROP TABLE IF EXISTS blog_category;
 CREATE TABLE blog_category (
-id INT NOT NULL AUTO_INCREMENT,
+id BIGINT(0) NOT NULL AUTO_INCREMENT,
 category_name VARCHAR(32) NOT NULL,
-article_id INT NOT NULL,
+article_id BIGINT(0) NOT NULL,
 PRIMARY KEY(id) USING BTREE
 ) ENGINE = INNODB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+
+DESC blog_category;
+
+
+INSERT INTO blog_article
+VALUES (1,"Test Title1","test summary","test content",'2022-11-17 08:21:22',1,NULL,0);
+
+SELECT * FROM blog_article;

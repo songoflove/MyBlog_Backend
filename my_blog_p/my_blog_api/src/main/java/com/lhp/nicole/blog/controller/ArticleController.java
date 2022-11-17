@@ -17,12 +17,12 @@ public class ArticleController {
     @Autowired
     private ArticleService articleService;
 
-
     /*
     * Homepage article list
     * @param pageParams
     * @return
     * */
+
     @PostMapping
     public Result listArticle(@RequestBody PageParams pageParams){
         return articleService.listArticle(pageParams);

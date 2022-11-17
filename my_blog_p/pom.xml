@@ -28,79 +28,9 @@
     <dependencies>
 
       <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter</artifactId>
-        <version>2.5.0</version>
-        <!-- 排除 默认使用的logback  -->
-        <exclusions>
-          <exclusion>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-logging</artifactId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-
-      <!-- log4j2 -->
-      <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-log4j2</artifactId>
-        <version>2.5.0</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-aop</artifactId>
-        <version>2.5.0</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-mail</artifactId>
-        <version>2.5.0</version>
-      </dependency>
-      <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-web</artifactId>
-        <version>2.5.0</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-test</artifactId>
-        <scope>test</scope>
-        <version>2.5.0</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-data-redis</artifactId>
-        <version>2.5.0</version>
-      </dependency>
-
-
-      <dependency>
         <groupId>com.alibaba</groupId>
         <artifactId>fastjson</artifactId>
         <version>1.2.76</version>
-      </dependency>
-
-      <dependency>
-        <groupId>mysql</groupId>
-        <artifactId>mysql-connector-java</artifactId>
-        <version>8.0.25</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-configuration-processor</artifactId>
-        <optional>true</optional>
-        <version>2.5.0</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.apache.commons</groupId>
-        <artifactId>commons-lang3</artifactId>
-        <version>3.11</version>
       </dependency>
 
       <dependency>
@@ -114,17 +44,12 @@
         <artifactId>mybatis-plus-boot-starter</artifactId>
         <version>3.4.3</version>
       </dependency>
-      <dependency>
-        <groupId>org.projectlombok</groupId>
-        <artifactId>lombok</artifactId>
-        <version>1.18.18</version>
-      </dependency>
       <!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
-      <dependency>
-        <groupId>joda-time</groupId>
-        <artifactId>joda-time</artifactId>
-        <version>2.10.10</version>
-      </dependency>
+<!--      <dependency>-->
+<!--        <groupId>joda-time</groupId>-->
+<!--        <artifactId>joda-time</artifactId>-->
+<!--        <version>2.10.10</version>-->
+<!--      </dependency>-->
     </dependencies>
   </dependencyManagement>
 

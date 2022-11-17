@@ -19,16 +19,19 @@ import java.util.List;
 @Service
 public class ArticleServiceImpl implements ArticleService {
 
+    //注入数据
     @Autowired
     private ArticleMapper articleMapper;
 
     @Override
     public Result listArticle(PageParams pageParams) {
         /*分页查询article数据库表 得到结果*/
+        //页数，每页有多少条
         Page<Article> page = new Page<>(pageParams.getPage(),pageParams.getPageSize());
+        //查询条件 order by created_date desc
         LambdaQueryWrapper<Article> queryWrapper = new LambdaQueryWrapper<>();
         //倒序排列文章
-        queryWrapper.orderByDesc(Article::getCreated_date);
+        queryWrapper.orderByDesc(Article::getCreatedDate);
         Page<Article> articlePage = articleMapper.selectPage(page, queryWrapper);
         //vo中是前端页面所需要的数据
         List<Article> records = articlePage.getRecords();
