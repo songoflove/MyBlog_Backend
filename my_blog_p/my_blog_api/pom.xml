@@ -83,6 +83,7 @@
             <artifactId>commons-collections</artifactId>
             <version>3.2.2</version>
         </dependency>
+<!--        md5加密依赖包-->
         <dependency>
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>

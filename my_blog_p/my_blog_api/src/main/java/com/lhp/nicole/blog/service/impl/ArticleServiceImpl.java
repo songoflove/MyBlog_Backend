@@ -50,7 +50,6 @@ public class ArticleServiceImpl implements ArticleService {
     private ArticleVo copy(Article article){
         ArticleVo articleVo = new ArticleVo();
         BeanUtils.copyProperties(article,articleVo);
-//        articleVo.setCreated_date(new Timestamp(article.getCreated_date()).toString("yyyy-MM-dd HH:mm"));
         return articleVo;
     }
 }

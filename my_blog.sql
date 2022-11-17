@@ -12,7 +12,16 @@ created_date DATETIME DEFAULT NULL,
 PRIMARY KEY(id) USING BTREE
 ) ENGINE = INNODB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
-DESC blog_account;
+ALTER TABLE blog_account RENAME AS blog_user;
+
+DESC blog_user;
+SELECT * FROM blog_user;
+
+INSERT INTO blog_user 
+VALUES (1,"tUser1","test111",NULL);
+
+INSERT INTO blog_user 
+VALUES (2,"admin","admin",NULL);
 -- ----------------------------
 -- Table structure for blog_article
 -- ----------------------------
@@ -47,5 +56,8 @@ DESC blog_category;
 
 INSERT INTO blog_article
 VALUES (1,"Test Title1","test summary","test content",'2022-11-17 08:21:22',1,NULL,0);
+
+INSERT INTO blog_article
+VALUES (2,"Test Title2","test summary 2","test content 2",'2022-11-18 10:21:22',1,NULL,0);
 
 SELECT * FROM blog_article;
