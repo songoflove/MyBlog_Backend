@@ -5,6 +5,7 @@ public enum ErrorCode {
     TOKEN_INVALID(1002,"invalid token"),
     NOT_LOGIN(2001, "user not logged in"),
     USER_PWD_NOT_EXIST(2002,"username or password not exist"),
+    ACCOUNT_EXIST(2003,"a user with this username already exists"),
     NO_PERMISSION(7001,"user has no permission"),
     SESSION_TIME_OUT(9001,"session time out");
 

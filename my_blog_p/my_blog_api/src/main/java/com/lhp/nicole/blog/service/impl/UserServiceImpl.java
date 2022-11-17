@@ -50,7 +50,6 @@ public class UserServiceImpl implements UserService {
          * 2.如果校验失败，返回错误
          * 3.如果成功，返回对应结果
          */
-
         User user = loginService.checkToken(token);
         if(user == null) {
             Result.failure(ErrorCode.TOKEN_INVALID.getCode(), ErrorCode.TOKEN_INVALID.getMsg());
@@ -59,5 +58,19 @@ public class UserServiceImpl implements UserService {
         loginUserVo.setId(user.getId());
         loginUserVo.setUsername(user.getUsername());
         return Result.success(loginUserVo);
+    }
+
+    @Override
+    public void save(User newUser) {
+        //保存用户信息 id自动生成 分布式id mybatis-plus采用雪花算法
+        this.userMapper.insert(newUser);
+    }
+
+    @Override
+    public User findUserbyUsername(String username) {
+        LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(User::getUsername,username);
+        queryWrapper.last("limit 1");
+        return this.userMapper.selectOne(queryWrapper);
     }
 }

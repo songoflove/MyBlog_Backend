@@ -12,5 +12,9 @@ public interface UserService {
 
     User findUser(String username, String password);
 
+    User findUserbyUsername(String username);
+
     Result findUserByToken(String token);
+
+    void save(User newUser);
 }

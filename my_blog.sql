@@ -24,6 +24,8 @@ VALUES (1,"tUser1","caae519044a1f4b34566849bcb23265e",NULL);  -- test111
 
 INSERT INTO blog_user 
 VALUES (2,"admin","adeacea814ee528a953e4b6242ac1be7",NULL);  -- admin
+
+-- test2 test22
 -- ----------------------------
 -- Table structure for blog_article
 -- ----------------------------

@@ -13,7 +13,10 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
+import java.util.Calendar;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -71,5 +74,33 @@ public class LoginServiceImpl implements LoginService {
     public Result logout(String token) {
         redisTemplate.delete("TOKEN_"+token);
         return Result.success(null);
+    }
+//Register
+    @Override
+    public Result register(LoginParams loginParams) {
+
+        String username = loginParams.getUsername();
+        String password = loginParams.getPassword();
+        // 1.判断参数 是否合法
+        if(StringUtils.isBlank(username) || StringUtils.isBlank(password)){
+            return Result.failure(ErrorCode.PARAMS_INVALID.getCode(), ErrorCode.PARAMS_INVALID.getMsg());
+        }
+        // 2.判断账户是否存在，若存在返回“账户已被注册”
+        User user = userService.findUserbyUsername(username);
+        if(user != null){
+            return Result.failure(ErrorCode.ACCOUNT_EXIST.getCode(),ErrorCode.ACCOUNT_EXIST.getMsg());
+        }
+        // 3.如果账户不存在，则注册用户
+        User newUser = new User();
+        newUser.setUsername(username);
+        newUser.setPassword(DigestUtils.md5Hex(password+salt));
+        newUser.setCreatedDate(LocalDateTime.now());
+        this.userService.save(newUser);
+        // 4.生成token
+        String token = JWTUtils.createToken(newUser.getId());
+        // 5.存入redis,并返回
+        redisTemplate.opsForValue().set("TOKEN_"+token, JSON.toJSONString(newUser),1, TimeUnit.DAYS);
+        return Result.success(token);
+         // 6.注：加上事务，一旦中间任何过程出现问题，注册的用户需要回滚 => 在login接口上添加事务的注解
     }
 }
