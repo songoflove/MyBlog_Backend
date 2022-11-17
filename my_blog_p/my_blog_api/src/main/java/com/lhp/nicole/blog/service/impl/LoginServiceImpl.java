@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 @Service
@@ -47,5 +48,22 @@ public class LoginServiceImpl implements LoginService {
         String token = JWTUtils.createToken(user.getId());
         redisTemplate.opsForValue().set("TOKEN_"+token, JSON.toJSONString(user),1, TimeUnit.DAYS);
         return Result.success(token);
+    }
+
+    @Override
+    public User checkToken(String token) {
+        if(StringUtils.isBlank(token)){  //判断是否为空
+            return null;
+        }
+        Map<String,Object> stringObjectMap = JWTUtils.checkToken(token);  //JWT校验
+        if(stringObjectMap == null){
+            return null;
+        }
+        String userJson = redisTemplate.opsForValue().get("TOKEN_" + token);  //redis校验
+        if(StringUtils.isBlank(userJson)){
+            return null;
+        }
+        User user = JSON.parseObject(userJson, User.class);
+        return user;
     }
 }

@@ -18,10 +18,12 @@ DESC blog_user;
 SELECT * FROM blog_user;
 
 INSERT INTO blog_user 
-VALUES (1,"tUser1","test111",NULL);
+VALUES (1,"tUser1","caae519044a1f4b34566849bcb23265e",NULL);  -- test111
+
+-- delete from blog_user where id=1;
 
 INSERT INTO blog_user 
-VALUES (2,"admin","admin",NULL);
+VALUES (2,"admin","adeacea814ee528a953e4b6242ac1be7",NULL);  -- admin
 -- ----------------------------
 -- Table structure for blog_article
 -- ----------------------------

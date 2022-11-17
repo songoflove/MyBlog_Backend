@@ -2,10 +2,11 @@ package com.lhp.nicole.blog.vo;
 
 public enum ErrorCode {
     PARAMS_INVALID(1001,"invalid params"),
+    TOKEN_INVALID(1002,"invalid token"),
+    NOT_LOGIN(2001, "user not logged in"),
     USER_PWD_NOT_EXIST(2002,"username or password not exist"),
     NO_PERMISSION(7001,"user has no permission"),
-    SESSION_TIME_OUT(9001,"session time out"),
-    NO_LOGIN(2001, "user not logged in");
+    SESSION_TIME_OUT(9001,"session time out");
 
     private int code;
     private String msg;
