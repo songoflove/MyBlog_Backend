@@ -3,6 +3,7 @@ package com.lhp.nicole.blog.vo;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+//import java.util.List;
 
 @Data
 public class ArticleVo {
@@ -12,4 +13,5 @@ public class ArticleVo {
     private String content;
     private LocalDateTime createdDate;
     private int viewCounts;
+//    private List<CategoryVo> category;
 }
