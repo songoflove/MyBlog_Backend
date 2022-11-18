@@ -34,4 +34,7 @@ public class ArticleController {
     public Result editArticle(@RequestBody ArticleParams articleParams){
         return articleService.editArticle(articleParams);
     }
+
+//    @PostMapping("/delete/{id}")
+
 }

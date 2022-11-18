@@ -6,6 +6,7 @@ import com.lhp.nicole.blog.dao.mapper.ArticleMapper;
 import com.lhp.nicole.blog.dao.pojo.Article;
 import com.lhp.nicole.blog.service.ArticleService;
 import com.lhp.nicole.blog.vo.ArticleVo;
+import com.lhp.nicole.blog.vo.ErrorCode;
 import com.lhp.nicole.blog.vo.Result;
 import com.lhp.nicole.blog.vo.params.ArticleParams;
 import com.lhp.nicole.blog.vo.params.PageParams;
@@ -65,12 +66,16 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public Result editArticle(ArticleParams articleParams) {
+        if(articleParams.getId() == null){
+            return Result.failure(ErrorCode.PARAMS_INVALID.getCode(), ErrorCode.PARAMS_INVALID.getMsg());
+        }
         Article article = new Article();
         article.setId(articleParams.getId());
         article.setTitle(articleParams.getTitle());
         article.setSummary(articleParams.getSummary());
         article.setContent(articleParams.getContent());
         article.setCreatedDate(LocalDateTime.now());
+        this.articleMapper.updateById(article);
         Map<String,String> map = new HashMap<>();
         map.put("id",article.getId().toString());
         return Result.success(map);
