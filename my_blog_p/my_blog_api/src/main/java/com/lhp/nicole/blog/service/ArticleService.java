@@ -1,6 +1,7 @@
 package com.lhp.nicole.blog.service;
 
 import com.lhp.nicole.blog.vo.Result;
+import com.lhp.nicole.blog.vo.params.ArticleParams;
 import com.lhp.nicole.blog.vo.params.PageParams;
 
 public interface ArticleService {
@@ -17,4 +18,10 @@ public interface ArticleService {
      * @return
      */
     Result findArticleById(Long articleId);
+    /*
+     * add new article
+     * @param articleParams
+     * @return
+     * */
+    Result addArticle(ArticleParams articleParams);
 }

@@ -7,14 +7,18 @@ import com.lhp.nicole.blog.dao.pojo.Article;
 import com.lhp.nicole.blog.service.ArticleService;
 import com.lhp.nicole.blog.vo.ArticleVo;
 import com.lhp.nicole.blog.vo.Result;
+import com.lhp.nicole.blog.vo.params.ArticleParams;
 import com.lhp.nicole.blog.vo.params.PageParams;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ArticleServiceImpl implements ArticleService {
@@ -44,6 +48,19 @@ public class ArticleServiceImpl implements ArticleService {
         Article article = this.articleMapper.selectById(articleId);
         ArticleVo articleVo = copy(article);
         return Result.success(articleVo);
+    }
+
+    @Override
+    public Result addArticle(ArticleParams articleParams) {
+        Article article = new Article();
+        article.setTitle(articleParams.getTitle());
+        article.setSummary(articleParams.getSummary());
+        article.setContent(articleParams.getContent());
+        article.setCreatedDate(LocalDateTime.now());
+        this.articleMapper.insert(article);
+        Map<String,String> map = new HashMap<>();
+        map.put("id",article.getId().toString());
+        return Result.success(map);
     }
 
     //复制article中的数据到articleVo
