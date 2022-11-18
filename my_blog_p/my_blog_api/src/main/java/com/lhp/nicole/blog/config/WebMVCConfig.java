@@ -20,9 +20,10 @@ public class WebMVCConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(loginInterceptor).addPathPatterns("/test");
-//                .addPathPatterns("/articles/edit")
-//                .addPathPatterns("/articles/add");
+        registry.addInterceptor(loginInterceptor)
+                .addPathPatterns("/articles/edit")
+                .addPathPatterns("/articles/add")
+                .addPathPatterns("/articles/delete/{id}");
 /*        registry.addInterceptor(loginInterceptor)
                 .addPathPatterns("/**")
                 .excludePathPatterns("/login")
