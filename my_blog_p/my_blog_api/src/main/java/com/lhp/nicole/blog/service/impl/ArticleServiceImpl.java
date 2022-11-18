@@ -81,6 +81,15 @@ public class ArticleServiceImpl implements ArticleService {
         return Result.success(map);
     }
 
+    @Override
+    public Result deleteArticle(Long articleId) {
+        int isDeleted = this.articleMapper.deleteById(articleId);
+        if (isDeleted != 1){
+            return Result.failure(ErrorCode.PARAMS_INVALID.getCode(), "failed to delete, please check params");
+        }
+        return Result.success("deleted");
+    }
+
     //复制article中的数据到articleVo
     private List<ArticleVo> copyList(List<Article> records) {
         List<ArticleVo> articleVoList = new ArrayList<>();

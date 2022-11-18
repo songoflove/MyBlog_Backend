@@ -32,4 +32,10 @@ public interface ArticleService {
      * @return
      */
     Result editArticle(ArticleParams articleParams);
+    /*
+     * delete article
+     * @params articleId
+     * @return
+     */
+    Result deleteArticle(Long articleId);
 }
