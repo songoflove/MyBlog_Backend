@@ -38,6 +38,14 @@ public class ArticleServiceImpl implements ArticleService {
         List<ArticleVo> articleVoList = copyList(records);
         return Result.success(articleVoList);
     }
+
+    @Override
+    public Result findArticleById(Long articleId) {
+        Article article = this.articleMapper.selectById(articleId);
+        ArticleVo articleVo = copy(article);
+        return Result.success(articleVo);
+    }
+
     //复制article中的数据到articleVo
     private List<ArticleVo> copyList(List<Article> records) {
         List<ArticleVo> articleVoList = new ArrayList<>();
@@ -51,5 +59,6 @@ public class ArticleServiceImpl implements ArticleService {
         ArticleVo articleVo = new ArticleVo();
         BeanUtils.copyProperties(article,articleVo);
         return articleVo;
+
     }
 }

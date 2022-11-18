@@ -5,9 +5,16 @@ import com.lhp.nicole.blog.vo.params.PageParams;
 
 public interface ArticleService {
     /*
-     * 分页查询 文章列表
+     * View article list
      * @param pageParams
      * @return
      */
     Result listArticle(PageParams pageParams);
+
+    /*
+     * View article details
+     * @params articleId
+     * @return
+     */
+    Result findArticleById(Long articleId);
 }

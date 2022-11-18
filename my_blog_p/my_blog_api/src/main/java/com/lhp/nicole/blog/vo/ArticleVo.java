@@ -13,5 +13,5 @@ public class ArticleVo {
     private String content;
     private LocalDateTime createdDate;
     private int viewCounts;
-//    private List<CategoryVo> category;
+//    private CategoryVo category;
 }

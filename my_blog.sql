@@ -43,6 +43,7 @@ PRIMARY KEY(id) USING BTREE
 ) ENGINE = INNODB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 DESC blog_article;
+SELECT * FROM blog_article;
 
 -- ----------------------------
 -- Table structure for blog_category
@@ -64,4 +65,5 @@ VALUES (1,"Test Title1","test summary","test content",'2022-11-17 08:21:22',1,NU
 INSERT INTO blog_article
 VALUES (2,"Test Title2","test summary 2","test content 2",'2022-11-18 10:21:22',1,NULL,0);
 
-SELECT * FROM blog_article;
+
+
