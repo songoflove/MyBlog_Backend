@@ -29,4 +29,9 @@ public class ArticleController {
     public Result addArticle(@RequestBody ArticleParams articleParams){
         return articleService.addArticle(articleParams);
     }
+
+    @PostMapping("/edit")
+    public Result editArticle(@RequestBody ArticleParams articleParams){
+        return articleService.editArticle(articleParams);
+    }
 }

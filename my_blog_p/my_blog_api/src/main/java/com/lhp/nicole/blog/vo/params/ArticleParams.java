@@ -7,4 +7,5 @@ public class ArticleParams {
     private String summary;
     private String content;
     private String title;
+    private Long id;
 }

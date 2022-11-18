@@ -18,10 +18,18 @@ public interface ArticleService {
      * @return
      */
     Result findArticleById(Long articleId);
+
     /*
      * add new article
      * @param articleParams
      * @return
      * */
     Result addArticle(ArticleParams articleParams);
+
+    /*
+     * edit article
+     * @params articleParams
+     * @return
+     */
+    Result editArticle(ArticleParams articleParams);
 }

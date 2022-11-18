@@ -63,6 +63,19 @@ public class ArticleServiceImpl implements ArticleService {
         return Result.success(map);
     }
 
+    @Override
+    public Result editArticle(ArticleParams articleParams) {
+        Article article = new Article();
+        article.setId(articleParams.getId());
+        article.setTitle(articleParams.getTitle());
+        article.setSummary(articleParams.getSummary());
+        article.setContent(articleParams.getContent());
+        article.setCreatedDate(LocalDateTime.now());
+        Map<String,String> map = new HashMap<>();
+        map.put("id",article.getId().toString());
+        return Result.success(map);
+    }
+
     //复制article中的数据到articleVo
     private List<ArticleVo> copyList(List<Article> records) {
         List<ArticleVo> articleVoList = new ArrayList<>();
