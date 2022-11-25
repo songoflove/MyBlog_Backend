@@ -84,7 +84,7 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public Result deleteArticle(Long articleId) {
         int isDeleted = this.articleMapper.deleteById(articleId);
-        System.out.println(isDeleted);
+//        System.out.println(isDeleted);
         if (isDeleted == 0){
             return Result.failure(ErrorCode.PARAMS_INVALID.getCode(), "id is wrong or not exist");
         }

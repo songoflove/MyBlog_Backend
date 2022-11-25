@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/register")
 public class RegisterController {
-
     @Autowired
     private LoginService loginService;
 
