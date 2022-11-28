@@ -26,11 +26,27 @@ class ArticleControllerTest {
     }
 
     @Test
-    void addArticle() {
+    void addArticle_Succeed() throws Exception {
+        RequestBuilder request = MockMvcRequestBuilders
+                .post("/articles/add")
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .param("summary", "testSummary1128")
+                .param("content", "testContent1128")
+                .param("title", "testTitle1128")
+                .param("id", String.valueOf(7));
+        mockMvc.perform(request);
     }
 
     @Test
-    void editArticle() {
+    void editArticle_Succeed() throws Exception {
+        RequestBuilder request = MockMvcRequestBuilders
+                .post("/articles/edit")
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .param("summary", "testEdit1128")
+                .param("content", "testEdit1128")
+                .param("title", "testEdit1128")
+                .param("id", String.valueOf(1));
+        mockMvc.perform(request);
     }
 
     @Test
