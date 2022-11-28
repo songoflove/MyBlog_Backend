@@ -53,6 +53,15 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public Result addArticle(ArticleParams articleParams) {
+        if(articleParams.getTitle() == ""){
+            return Result.failure(ErrorCode.PARAMS_INVALID.getCode(), ErrorCode.PARAMS_INVALID.getMsg());
+        }
+        if(articleParams.getContent() == ""){
+            return Result.failure(ErrorCode.PARAMS_INVALID.getCode(), ErrorCode.PARAMS_INVALID.getMsg());
+        }
+        if(articleParams.getSummary() == ""){
+            return Result.failure(ErrorCode.PARAMS_INVALID.getCode(), ErrorCode.PARAMS_INVALID.getMsg());
+        }
         Article article = new Article();
         article.setTitle(articleParams.getTitle());
         article.setSummary(articleParams.getSummary());

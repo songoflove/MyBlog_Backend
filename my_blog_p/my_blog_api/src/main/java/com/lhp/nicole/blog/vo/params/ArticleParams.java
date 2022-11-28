@@ -8,4 +8,10 @@ public class ArticleParams {
     private String content;
     private String title;
     private Long id;
+
+    public ArticleParams(String summary, String content, String title) {
+        this.summary = summary;
+        this.content = content;
+        this.title = title;
+    }
 }
