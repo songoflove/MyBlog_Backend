@@ -52,5 +52,8 @@ class ArticleServiceTest {
 
     @Test
     void deleteArticle() {
+        int isDeleted = 0;
+        Assertions.assertEquals(1001,articleService.deleteArticle(1L).getCode());
+
     }
 }
