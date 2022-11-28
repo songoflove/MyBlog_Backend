@@ -32,6 +32,13 @@ class LoginServiceTest {
         LoginParams loginParams = new LoginParams(username,password);
         Assertions.assertEquals(1001, loginService.login(loginParams).getCode());
     }
+/*    @Test
+    void testLogin_UserNotExist_ReturnFailure() {
+        String username = "admin551";
+        String password = "admin";
+        LoginParams loginParams = new LoginParams(username,password);
+        Assertions.assertEquals(1001, loginService.login(loginParams).getCode());
+    }*/
 
     @Test
     void checkToken() {
@@ -41,7 +48,20 @@ class LoginServiceTest {
     void logout() {
     }
 
+
     @Test
-    void register() {
+    void testRegister_BlankUsername_ReturnFailure() {
+        String username = "";
+        String password = "123";
+        LoginParams loginParams = new LoginParams(username,password);
+        Assertions.assertEquals(1001, loginService.register(loginParams).getCode());
+    }
+
+    @Test
+    void testRegister_BlankPassword_ReturnFailure() {
+        String username = "admin";
+        String password = "";
+        LoginParams loginParams = new LoginParams(username,password);
+        Assertions.assertEquals(1001, loginService.register(loginParams).getCode());
     }
 }
