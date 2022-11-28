@@ -41,7 +41,13 @@ class ArticleServiceTest {
     }
 
     @Test
-    void editArticle() {
+    void testEditArticle_BlankId_ReturnFailure() {
+        String summary = "sss";
+        String title = "ttt";
+        String content = "cc";
+        Long id = null;
+        ArticleParams articleParams = new ArticleParams(summary,content,title,id);
+        Assertions.assertEquals(1001,articleService.addArticle(articleParams).getCode());
     }
 
     @Test

@@ -14,4 +14,11 @@ public class ArticleParams {
         this.content = content;
         this.title = title;
     }
+    public ArticleParams(String summary, String content, String title,Long id) {
+        this.summary = summary;
+        this.content = content;
+        this.title = title;
+        this.id = id;
+    }
+    
 }
