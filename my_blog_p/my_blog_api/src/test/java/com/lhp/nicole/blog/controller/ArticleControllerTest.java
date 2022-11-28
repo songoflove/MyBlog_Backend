@@ -50,6 +50,9 @@ class ArticleControllerTest {
     }
 
     @Test
-    void deleteArticle() {
+    void deleteArticle_Succeed() throws Exception {
+        RequestBuilder request = MockMvcRequestBuilders
+                .post("/articles/delete/1");
+        mockMvc.perform(request);
     }
 }
